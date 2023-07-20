@@ -1,16 +1,13 @@
-FROM  ubuntu:latest
+FROM  centos:latest
 MAINTAINER vikashashoke@gmail.com
-RUN  apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y apache2 \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-    
+RUN  yum   install -y httpd \
+ zip\
+ unzip
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
 WORKDIR /var/www/html/
-Run apt install unzip
 RUN unzip photogenic.zip
 RUN cp -rvf photogenic/* .
 RUN rm -rf photogenic photogenic.zip
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80 22 23 
 
