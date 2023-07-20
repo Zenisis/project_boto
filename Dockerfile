@@ -1,14 +1,10 @@
-FROM  centos:latest
-MAINTAINER vikashashoke@gmail.com
-RUN  yum   install -y httpd \
- zip\
- unzip
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
-WORKDIR /var/www/html/
-Run sudo rm -r /var/cache/dnf
-RUN unzip photogenic.zip
-RUN cp -rvf photogenic/* .
-RUN rm -rf photogenic photogenic.zip
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-EXPOSE 80 22 23 
+# Use the official NGINX base image
+FROM nginx:latest
 
+# Copy the CSS template files into the NGINX default web server directory
+COPY css-template/ /usr/share/nginx/html/
+
+# Expose port 80 to allow access to the web server
+EXPOSE 80
+
+# The CMD instruction is already set in the NGINX base image to st
