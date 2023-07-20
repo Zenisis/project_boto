@@ -1,13 +1,13 @@
-FROM python:3
+FROM  ubuntu:latest
+MAINTAINER vikashashoke@gmail.com
+RUN sudo apt  install -y httpd \
+ zip\
+ unzip
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
+WORKDIR /var/www/html/
+RUN unzip photogenic.zip
+RUN cp -rvf photogenic/* .
+RUN rm -rf photogenic photogenic.zip
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+EXPOSE 80 22 23 
 
-
-RUN pip install django==3.2
-
-
-COPY . .
-
-
-RUN python manage.py migrate
-
-
-CMD ["python","manage.py","runserver","0.0.0.0:8005"]
