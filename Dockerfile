@@ -1,16 +1,24 @@
-FROM centos:latest
-LABEL maintainer="vikashashoke@gmail.com"
+# Use the official Ubuntu base image
+FROM ubuntu:latest
 
-RUN yum install -y httpd zip unzip
+# Update package lists and install Apache, zip, and unzip
+RUN apt-get update && \
+    apt-get install -y apache2 zip unzip
 
-WORKDIR /var/www/html/
+# Set the working directory to /var/www/html
+WORKDIR /var/www/html
 
-RUN curl -o fonicy.zip https://www.free-css.com/assets/files/free-css-templates/download/page293/fonicy.zip \
-    && unzip fonicy.zip \
-    && cp -rvf fonicy/* . \
-    && rm -rf fonicy fonicy.zip
+# Download the coffee shop CSS template zip file and unzip it
+RUN apt-get install -y curl && \
+    curl -o coffeeshop.zip https://www.example.com/path/to/coffeeshop.zip && \
+    unzip coffeeshop.zip && \
+    rm coffeeshop.zip
 
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-EXPOSE 80 22 23
+# Expose port 80 to allow external access
+EXPOSE 80
+
+# Start Apache in the foreground when the container runs
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+
 
 
