@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 # Update package lists and install Apache, zip, and unzip
 RUN apt-get update && \
-    apt-get install -y apache2 zip unzip
+    apt-get install  apache2 zip unzip -y 
 
 # Set the working directory to /var/www/html
 WORKDIR /var/www/html
