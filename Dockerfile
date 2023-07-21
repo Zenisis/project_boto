@@ -3,14 +3,14 @@ FROM ubuntu:latest
 
 # Update package lists and install Apache, zip, and unzip
 RUN apt-get update && \
-    apt-get install  apache2 zip unzip -y 
+    apt install  apache2 zip unzip -y 
 
 # Set the working directory to /var/www/html
 WORKDIR /var/www/html
 
 # Download the coffee shop CSS template zip file and unzip it
 RUN apt-get install -y curl && \
-    curl -o https://www.free-css.com/assets/files/free-css-templates/download/page293/photosec.zip && \
+    wget  https://www.free-css.com/assets/files/free-css-templates/download/page293/photosec.zip && \
     unzip photosec.zip && \
     rm photosec.zip
 
