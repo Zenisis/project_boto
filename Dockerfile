@@ -2,7 +2,8 @@
 FROM ubuntu:latest
 
 # Update package lists and install Apache, zip, and unzip
-RUN apt-get update && \
+RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/us.archive.ubuntu.com/' /etc/apt/sources.list
+    apt-get update && \
     apt install  apache2 zip unzip -y 
 
 # Set the working directory to /var/www/html
