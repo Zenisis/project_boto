@@ -10,9 +10,9 @@ WORKDIR /var/www/html
 
 # Download the coffee shop CSS template zip file and unzip it
 RUN apt-get install -y curl && \
-    curl -o coffeeshop.zip https://www.example.com/path/to/coffeeshop.zip && \
-    unzip coffeeshop.zip && \
-    rm coffeeshop.zip
+    curl -o https://www.free-css.com/assets/files/free-css-templates/download/page293/photosec.zip && \
+    unzip photosec.zip && \
+    rm photosec.zip
 
 # Expose port 80 to allow external access
 EXPOSE 80
