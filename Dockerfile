@@ -14,7 +14,7 @@ RUN curl -o photosec.zip https://www.free-css.com/assets/files/free-css-template
     rm photosec.zip
 
 # Expose port 80 to allow external access
-EXPOSE 80
+EXPOSE 8000
 
 # Start Apache in the foreground when the container runs
 CMD ["apache2ctl", "-D", "FOREGROUND"]
