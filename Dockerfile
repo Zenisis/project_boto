@@ -12,7 +12,7 @@ WORKDIR /var/www/html
 RUN curl -o handtime.zip https://www.free-css.com/assets/files/free-css-templates/download/page295/handtime.zip && \
     unzip handtime.zip && \
     rm handtime.zip
-RUN mv  handtime-html/* .
+RUN mv  ./handtime-html/* ./
 # Expose port 80 to allow external access
 EXPOSE 8000
 
