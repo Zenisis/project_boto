@@ -9,12 +9,14 @@ RUN apt-get update && \
 WORKDIR /var/www/html
 
 # Download the coffee shop CSS template zip file and unzip it using curl
-RUN curl -o handtime.zip https://www.free-css.com/assets/files/free-css-templates/download/page295/handtime.zip && \
-    unzip handtime.zip && \
-    rm handtime.zip
-RUN mv  ./handtime-html/* ./
+RUN curl -o https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip && \
+    unzip oxer.zip && \
+    rm oxer.zip
+#RUN mv  ./handtime-html/* ./
 # Expose port 80 to allow external access
-EXPOSE 8000
+EXPOSE 8080
 
 # Start Apache in the foreground when the container runs
 CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+
