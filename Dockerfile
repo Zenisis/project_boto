@@ -12,7 +12,7 @@ WORKDIR /var/www/html
 RUN curl -o https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip && \
     unzip oxer.zip && \
     rm oxer.zip
-#RUN mv  ./handtime-html/* ./
+RUN mv  ./oxer-html/* ./
 # Expose port 80 to allow external access
 EXPOSE 8080
 
