@@ -14,7 +14,7 @@ RUN curl -o https://www.free-css.com/assets/files/free-css-templates/download/pa
     rm oxer.zip
 RUN mv  ./oxer-html/* ./
 # Expose port 80 to allow external access
-EXPOSE 8080
+EXPOSE 80
 
 # Start Apache in the foreground when the container runs
 CMD ["apache2ctl", "-D", "FOREGROUND"]
